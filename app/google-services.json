@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "949445396872",
+    "project_id": "petty-cash-management",
+    "storage_bucket": "petty-cash-management.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949445396872:android:d26caf72453bcfc355123d",
+        "android_client_info": {
+          "package_name": "com.moringaschool.pettycashmanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949445396872-nuffr3vqtva03vr4ujo7el44dqcp879g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moringaschool.pettycashmanagement",
+            "certificate_hash": "dab0287f69bdf0247536384277b1bffe0845a957"
+          }
+        },
+        {
+          "client_id": "949445396872-4vlseef91b9kqc2qm2mer8ocelv21ieq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMSMKHSPIkarNTi3U6yESlmDdyze-BEyI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949445396872-4vlseef91b9kqc2qm2mer8ocelv21ieq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
