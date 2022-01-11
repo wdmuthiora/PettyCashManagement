@@ -5,7 +5,8 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="4dp">
 
 
         <TextView
@@ -17,6 +18,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:paddingEnd="8dp"
+            android:layout_marginLeft="16dp"
             android:text="Title"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -26,19 +28,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
+            android:layout_marginRight="16dp"
             android:text="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
             android:id="@+id/text_view_description"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_view_amount"
             android:layout_alignParentStart="true"
             android:ellipsize="end"
             android:maxLines="3"
             android:paddingEnd="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:text="Description"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -50,6 +54,7 @@
             android:ems="10"
             android:inputType="date"
             android:text="Date"
+            android:layout_marginLeft="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
@@ -57,8 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_text_date"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="false"
+            android:layout_alignLeft="@id/edit_text_date"
             android:layout_marginTop="1dp"
             android:text="Kes. "
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
