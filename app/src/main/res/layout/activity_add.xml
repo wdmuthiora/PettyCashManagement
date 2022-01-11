@@ -51,10 +51,7 @@
         android:layout_marginTop="296dp"
         android:ems="10"
         android:hint="Amount"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.184"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <EditText
         android:id="@+id/purpose"
