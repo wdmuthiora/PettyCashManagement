@@ -3,7 +3,7 @@ package com.moringaschool.pettycashmanagement.Dao;
 
 import com.moringaschool.pettycashmanagement.Models.PettyCashRequest;
 
-import retrofit2.http.Query;
+
 
 @Dao
 public interface PettyCashDao {
@@ -19,6 +19,8 @@ public interface PettyCashDao {
 
     @Query("DELETE FROM pettyCash_table")
     void deleteAllRequests();
+
+
 
 
 }

@@ -2,6 +2,7 @@ package com.moringaschool.pettycashmanagement.Models;
 
 import java.util.Date;
 
+@Entity(tableName = "pettyCash_table")
 public class PettyCashRequest {
     private int id;
     private String title;
