@@ -11,6 +11,9 @@ public interface PettyCashDao {
     @Insert
     void insert(PettyCashRequest pettyCashRequest);
 
+    @Update
+    void update(PettyCashRequest pettyCashRequest);
+
 
 
 }
