@@ -10,7 +10,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.moringaschool.pettycashmanagement.Adapters.RequestAdapter;
 import com.moringaschool.pettycashmanagement.R;
 
-public class DisplayRequests extends AppCompatActivity {
+public class DisplayRequestsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
