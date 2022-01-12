@@ -102,11 +102,15 @@ public class DisplayRequestsActivity extends AppCompatActivity {
 
         if (requestCode == ADD_PETTY_CASH_REQUEST && resultCode==RESULT_OK){
 
-            String title=data.getStringExtra(AddActivity.EXTRA_TITLE);
-            String description=data.getStringExtra(AddActivity.EXTRA_DESCRIPTION);
-            int priority=data.getIntExtra(AddActivity.EXTRA_PRIORITY, 1); //Integer values are not nullable, so we pass a default value, in this case, '1'. This can also serve as a default value.
+            String name = data.getStringExtra(AddActivity.EXTRA_NAME);
+            String employee_Id = data.getStringExtra(AddActivity.EXTRA_EMPLOYEE_ID);
+            int amount = data.getIntExtra(AddActivity.EXTRA_AMOUNT, 1); //Integer values are not nullable, so we pass a default value, in this case, '1'. This can also serve as a default value.
+            String priority = data.getStringExtra(AddActivity.EXTRA_PRIORITY);
+            String purpose = data.getStringExtra(AddActivity.EXTRA_PURPOSE);
 
-            PettyCashRequest pettyCashRequest = new PettyCashRequest();
+
+            PettyCashRequest pettyCashRequest = new PettyCashRequest(name, employee_Id, amount, priority, purpose);
+
             requestsViewModel.insert(pettyCashRequest);
             Toast.makeText(this, "Petty Cash Request saved", Toast.LENGTH_SHORT);
 
@@ -119,11 +123,13 @@ public class DisplayRequestsActivity extends AppCompatActivity {
                 return;
             }
 
-            String title=data.getStringExtra(AddActivity.EXTRA_TITLE);
-            String description=data.getStringExtra(AddActivity.EXTRA_DESCRIPTION);
-            int priority=data.getIntExtra(AddActivity.EXTRA_PRIORITY, 1);
+            String name = data.getStringExtra(AddActivity.EXTRA_NAME);
+            String employee_Id = data.getStringExtra(AddActivity.EXTRA_EMPLOYEE_ID);
+            int amount = data.getIntExtra(AddActivity.EXTRA_AMOUNT, 1); //Integer values are not nullable, so we pass a default value, in this case, '1'. This can also serve as a default value.
+            String priority = data.getStringExtra(AddActivity.EXTRA_PRIORITY);
+            String purpose = data.getStringExtra(AddActivity.EXTRA_PURPOSE);
 
-            PettyCashRequest pettyCashRequest= new PettyCashRequest();
+            PettyCashRequest pettyCashRequest = new PettyCashRequest(name, employee_Id, amount, priority, purpose);
             pettyCashRequest.setId(id); //Set the ID of the Petty Cash Request object we are creating, in order for Room to identify which pettyCashRequest (row) we are editing.
 
             requestsViewModel.update(pettyCashRequest);
