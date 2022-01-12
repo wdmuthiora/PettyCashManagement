@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/mybutton.xml" value="0.10520833333333333" />
+        <entry key="app/src/main/res/layout-land/activity_login.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.15" />
         <entry key="app/src/main/res/layout/mybutton.xml" value="0.1" />
       </map>
