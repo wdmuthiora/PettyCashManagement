@@ -20,24 +20,24 @@
 
     <TextView
         android:id="@+id/easiestText"
-        android:layout_marginTop="15dp"
-        android:layout_below="@id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/welcomeText"
         android:layout_centerVertical="true"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="8dp"
         android:text="Easiest Way"
         android:textColor="@color/white"
         android:textSize="25dp" />
 
     <TextView
         android:id="@+id/manageText"
-        android:layout_marginTop="15dp"
-        android:layout_below="@id/easiestText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/easiestText"
         android:layout_centerVertical="true"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp"
         android:text="Manage Your Money"
         android:textColor="@color/white"
         android:textSize="25dp" />
@@ -47,22 +47,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/manageText"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="30dp"
         android:background="@android:color/transparent"
-        android:backgroundTint="@android:color/white"
         android:text="Login"
         android:textColor="@color/white"
-        android:textStyle="bold"
-        tools:backgroundTint="#25525525" />
+        android:textStyle="bold" />
+
     <Button
         android:id="@+id/buttonRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonGoToLogin"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="3dp"
         android:layout_marginRight="30dp"
         android:background="@android:color/transparent"
         android:text="Register"
@@ -72,5 +71,9 @@
         android:id="@+id/textTerms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/buttonRegister"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="1dp"
         android:text="Terms Of Service" />
 </RelativeLayout>
