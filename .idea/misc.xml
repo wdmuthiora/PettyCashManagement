@@ -5,9 +5,10 @@
       <map>
         <entry key="app/src/main/res/drawable/mybutton.xml" value="0.10520833333333333" />
         <entry key="app/src/main/res/layout-land/activity_login.xml" value="0.15" />
+        <entry key="app/src/main/res/layout-land/activity_signup.xml" value="0.12345679012345678" />
         <entry key="app/src/main/res/layout/activity_display_requests.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.11875" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.33" />
         <entry key="app/src/main/res/layout/mybutton.xml" value="0.1" />
       </map>
     </option>
