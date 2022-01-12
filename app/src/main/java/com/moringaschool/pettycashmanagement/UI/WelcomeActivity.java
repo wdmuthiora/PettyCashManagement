@@ -1,18 +1,23 @@
-package com.moringaschool.pettycashmanagement;
+package com.moringaschool.pettycashmanagement.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.moringaschool.pettycashmanagement.R;
+import com.moringaschool.pettycashmanagement.UI.DisplayRequestsActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener{
+
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.buttonGoToLogin) Button mGoToLogin;
     @SuppressLint("NonConstantResourceId")
@@ -35,12 +40,18 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         if(view == mGoToLogin){
             Toast.makeText(WelcomeActivity.this, "mGoToLogin", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
+            startActivity(intent);
         }
         if(view == mGoToRegister){
             Toast.makeText(WelcomeActivity.this, "mGoToRegister", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(WelcomeActivity.this, SignupActivity.class);
+            startActivity(intent);
         }
         if(view == mTerms){
             Toast.makeText(WelcomeActivity.this, "mTerms", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 }

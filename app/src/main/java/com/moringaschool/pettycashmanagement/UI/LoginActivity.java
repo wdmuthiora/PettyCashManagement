@@ -1,4 +1,4 @@
-package com.moringaschool.pettycashmanagement;
+package com.moringaschool.pettycashmanagement.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,11 +12,14 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.moringaschool.pettycashmanagement.R;
+import com.moringaschool.pettycashmanagement.UI.DisplayRequestsActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+
     @BindView(R.id.registerTextView) TextView mRegisterTextView;
     @BindView(R.id.forgotPasswordText) TextView mForgotPasswordText;
     @BindView(R.id.emailEditText) TextView mEmailEditText;
@@ -40,9 +43,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mAuthListener = firebaseAuth -> {
             FirebaseUser user = firebaseAuth.getCurrentUser();
             if (user != null) {
-//                Intent intent = new Intent(LoginActivity.this, DisplayRequestsActivity.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                startActivity(intent);
+                Intent intent = new Intent(LoginActivity.this, DisplayRequestsActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
                 finish();
             }
         };
@@ -50,8 +53,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         if (view == mRegisterTextView) {
-//            Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+            startActivity(intent);
             finish();
         }
         if (view == mLogInButton) {

@@ -19,7 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.moringaschool.pettycashmanagement.LoginActivity;
+import com.moringaschool.pettycashmanagement.UI.LoginActivity;
 import com.moringaschool.pettycashmanagement.R;
 
 import java.util.Objects;
@@ -27,7 +27,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SignupActivity extends AppCompatActivity implements View.OnClickListener{
+public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
 
     @BindView(R.id.firebaseProgressBar)
     ProgressBar mSignInProgressBar;
@@ -37,16 +37,19 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     Button mLogInButton;
     @BindView(R.id.nameEditText)
     EditText mNameEditText;
-    @BindView(R.id.emailEditText) EditText mEmailEditText;
-    @BindView(R.id.passwordEditText) EditText mPasswordEditText;
-    @BindView(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
-    @BindView(R.id.loginTextView) TextView mLoginTextView;
+    @BindView(R.id.emailEditText)
+    EditText mEmailEditText;
+    @BindView(R.id.passwordEditText)
+    EditText mPasswordEditText;
+    @BindView(R.id.confirmPasswordEditText)
+    EditText mConfirmPasswordEditText;
+    @BindView(R.id.loginTextView)
+    TextView mLoginTextView;
 
     public static final String TAG = SignupActivity.class.getSimpleName();
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private String mName;
-
 
 
     @Override
@@ -62,6 +65,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         createAuthStateListener();
 
     }
+
     @Override
     public void onClick(View view) {
 
@@ -77,6 +81,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         }
 
     }
+
     public void createNewUser() {
         mName = mNameEditText.getText().toString().trim();
         final String name = mNameEditText.getText().toString().trim();
@@ -119,8 +124,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         mLoadingSignUp.setVisibility(View.GONE);
     }
 
-    private void createAuthStateListener(){
-        mAuthListener= new FirebaseAuth.AuthStateListener() {
+    private void createAuthStateListener() {
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -132,7 +137,9 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 }
             }
         };
-    }private void createFirebaseUserProfile(final FirebaseUser user) {
+    }
+
+    private void createFirebaseUserProfile(final FirebaseUser user) {
 
         UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
                 .setDisplayName(mName)
@@ -166,15 +173,17 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
-    public boolean isValidEmail(String email){
-        boolean isGoodEmail =(
-                email!=null && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+
+    public boolean isValidEmail(String email) {
+        boolean isGoodEmail = (
+                email != null && Patterns.EMAIL_ADDRESS.matcher(email).matches());
         if (!isGoodEmail) {
             mEmailEditText.setError("Please enter a valid email address");
             return false;
         }
         return isGoodEmail;
     }
+
     private boolean isValidName(String name) {
         if (name.equals("")) {
             mNameEditText.setError("Please enter your name");
@@ -182,6 +191,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         }
         return true;
     }
+
     private boolean isValidPassword(String password, String confirmPassword) {
         if (password.length() < 6) {
             mPasswordEditText.setError("Please create a password containing at least 6 characters");

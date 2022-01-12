@@ -3,38 +3,43 @@ package com.moringaschool.pettycashmanagement.Models;
 import java.util.Date;
 
 public class PettyCashRequest {
-    private int id;
-    private String title;
+
+    private int id; //Primary key.
+
+    private String name;
+    private String employee_ID;
     private String priority;
-    private String description;
+    private String purpose;
     private Date date;
     private String currency;
     private int amount;
 
-    public PettyCashRequest(String title, String priority, String description, Date date, String currency, int amount) {
+
+    public PettyCashRequest(String name, String employee_ID, int amount, String priority, String purpose) {
         this.id = id;
-        this.title = title;
+        this.name = name;
         this.priority = priority;
-        this.description = description;
+        this.purpose = purpose;
         this.date = date;
         this.currency = currency;
         this.amount = amount;
+        this. employee_ID=employee_ID;
     }
 
-    public int getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getTitle() {
-        return title;
+    public String getEmployee_ID() {
+        return employee_ID;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setEmployee_ID(String employee_ID) {
+        this.employee_ID = employee_ID;
     }
 
     public String getPriority() {
@@ -45,12 +50,12 @@ public class PettyCashRequest {
         this.priority = priority;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPurpose() {
+        return purpose;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
     }
 
     public Date getDate() {
