@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -10,7 +11,7 @@
 
 
         <TextView
-            android:id="@+id/text_view_title"
+            android:id="@+id/text_view_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -33,7 +34,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
-            android:id="@+id/text_view_description"
+            android:id="@+id/text_view_purpose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_view_amount"
@@ -50,12 +51,13 @@
             android:id="@+id/edit_text_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_title"
+            android:layout_below="@id/text_view_name"
             android:layout_marginLeft="16dp"
             android:ems="10"
             android:inputType="date"
             android:text="Date"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/text_view_currency"

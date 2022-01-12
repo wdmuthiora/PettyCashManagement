@@ -82,4 +82,5 @@ public class PettyCashRequest {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
 }
