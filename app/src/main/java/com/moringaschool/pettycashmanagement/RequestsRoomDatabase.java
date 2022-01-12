@@ -1,4 +1,6 @@
 package com.moringaschool.pettycashmanagement;
 
-public class RequestsRoomDatabase {
+import androidx.room.RoomDatabase;
+
+public class RequestsRoomDatabase extends RoomDatabase {
 }
