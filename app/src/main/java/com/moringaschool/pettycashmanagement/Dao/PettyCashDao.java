@@ -14,6 +14,9 @@ public interface PettyCashDao {
     @Update
     void update(PettyCashRequest pettyCashRequest);
 
+    @Delete
+    void delete(PettyCashRequest pettyCashRequest);
+
 
 
 }
