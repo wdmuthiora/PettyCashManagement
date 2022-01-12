@@ -17,6 +17,8 @@ public interface PettyCashDao {
     @Delete
     void delete(PettyCashRequest pettyCashRequest);
 
+    @Query("DELETE FROM pettyCash_table")
+    void deleteAllRequests();
 
 
 }
