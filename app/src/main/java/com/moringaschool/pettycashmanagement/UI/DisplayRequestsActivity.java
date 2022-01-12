@@ -34,7 +34,7 @@ public class DisplayRequestsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(DisplayRequestsActivity.this, AddActivity.class);
                 startActivity(intent);
-                //startActivityForResult(intent, ADD_NOTE_REQUEST);
+                //startActivityForResult(intent, ADD_REQUEST_REQUEST);
             }
         });
 
