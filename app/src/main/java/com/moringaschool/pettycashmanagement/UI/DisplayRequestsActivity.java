@@ -1,6 +1,9 @@
 package com.moringaschool.pettycashmanagement.UI;
 
+import static com.moringaschool.pettycashmanagement.Constants.Constants.ADD_PETTY_CASH_REQUEST;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -15,6 +18,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.moringaschool.pettycashmanagement.Adapters.RequestAdapter;
+import com.moringaschool.pettycashmanagement.Constants.Constants;
 import com.moringaschool.pettycashmanagement.Models.PettyCashRequest;
 import com.moringaschool.pettycashmanagement.R;
 import com.moringaschool.pettycashmanagement.RequestsViewModel;
@@ -44,8 +48,8 @@ public class DisplayRequestsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DisplayRequestsActivity.this, AddActivity.class);
-                startActivity(intent);
-                //startActivityForResult(intent, ADD_REQUEST_REQUEST);
+
+                startActivityForResult(intent, ADD_PETTY_CASH_REQUEST);
             }
         });
 
@@ -56,6 +60,7 @@ public class DisplayRequestsActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<PettyCashRequest> pettyCashRequests) {
                 requestAdapter.submitList(pettyCashRequests);
+                Toast.makeText(DisplayRequestsActivity.this, "onChanged", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -73,6 +78,60 @@ public class DisplayRequestsActivity extends AppCompatActivity {
             }
         }).attachToRecyclerView(recyclerView);
 
+        requestAdapter.setOnItemClickListener(new RequestAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(PettyCashRequest pettyCashRequest) { //Pass the clicked Petty Cash Request item inside the constructor
 
+                //Use Shift+F6 to edit a field project-wide.
+                Intent intent = new Intent(DisplayRequestsActivity.this, AddActivity.class); //Since we are in this anonymous inner class, we can not call 'this' context
+                intent.putExtra(AddActivity.EXTRA_ID, pettyCashRequest.getId()); //We need to pass the clicked item's ID because Room uses it as the Primary Key
+                intent.putExtra(AddActivity.EXTRA_EMPLOYEE_ID, pettyCashRequest.getId());
+                intent.putExtra(AddActivity.EXTRA_AMOUNT, pettyCashRequest.getAmount());
+                intent.putExtra(AddActivity.EXTRA_PRIORITY, pettyCashRequest.getPriority());
+                intent.putExtra(AddActivity.EXTRA_PURPOSE, pettyCashRequest.getPurpose());
+
+                startActivityForResult(intent, Constants.EDIT_PETTY_CASH_REQUEST);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) { //This function will still be triggered if we left the AddNoteActivity using the back button, meaning abortion of creation of a new note, but now, the result will not be set to RESULT_OK, but will be set by the system to RESULT_CANCELLED.
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == ADD_PETTY_CASH_REQUEST && resultCode==RESULT_OK){
+
+            String title=data.getStringExtra(AddActivity.EXTRA_TITLE);
+            String description=data.getStringExtra(AddActivity.EXTRA_DESCRIPTION);
+            int priority=data.getIntExtra(AddActivity.EXTRA_PRIORITY, 1); //Integer values are not nullable, so we pass a default value, in this case, '1'. This can also serve as a default value.
+
+            PettyCashRequest pettyCashRequest = new PettyCashRequest();
+            requestsViewModel.insert(pettyCashRequest);
+            Toast.makeText(this, "Petty Cash Request saved", Toast.LENGTH_SHORT);
+
+        } else  if (requestCode == Constants.EDIT_PETTY_CASH_REQUEST && resultCode==RESULT_OK){
+
+            int id = data.getIntExtra(AddActivity.EXTRA_ID, -1);
+
+            if (id==-1){
+                Toast.makeText(DisplayRequestsActivity.this, "Petty Cash Request can't be edited", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            String title=data.getStringExtra(AddActivity.EXTRA_TITLE);
+            String description=data.getStringExtra(AddActivity.EXTRA_DESCRIPTION);
+            int priority=data.getIntExtra(AddActivity.EXTRA_PRIORITY, 1);
+
+            PettyCashRequest pettyCashRequest= new PettyCashRequest();
+            pettyCashRequest.setId(id); //Set the ID of the Petty Cash Request object we are creating, in order for Room to identify which pettyCashRequest (row) we are editing.
+
+            requestsViewModel.update(pettyCashRequest);
+            Toast.makeText(DisplayRequestsActivity.this, "Petty Cash Request updated", Toast.LENGTH_SHORT).show();
+
+        }else{
+            Toast.makeText(this, "Petty Cash Request not saved", Toast.LENGTH_SHORT);
+
+        }
     }
 }
