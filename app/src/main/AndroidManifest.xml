@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PettyCashManagement">
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoginActivity"/>
+            android:name=".UI.DisplayRequests"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

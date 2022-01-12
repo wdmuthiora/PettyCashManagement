@@ -40,9 +40,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mAuthListener = firebaseAuth -> {
             FirebaseUser user = firebaseAuth.getCurrentUser();
             if (user != null) {
-                Intent intent = new Intent(LoginActivity.this, DisplayRequests.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
+//                Intent intent = new Intent(LoginActivity.this, DisplayRequests.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                startActivity(intent);
                 finish();
             }
         };
@@ -50,16 +50,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         if (view == mRegisterTextView) {
-            Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+//            startActivity(intent);
             finish();
         }
         if (view == mLogInButton) {
             login();
         }
         if (view == mForgotPasswordText) {
-            Intent intent = new Intent(LoginActivity.this, Resetpassword.class);
-            startActivity(intent);
+//            Intent intent = new Intent(LoginActivity.this, Resetpassword.class);
+//            startActivity(intent);
             finish();
         }
     }
