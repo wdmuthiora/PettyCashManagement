@@ -21,44 +21,45 @@
         android:id="@+id/etEmployeeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="46dp"
         android:ems="10"
         android:hint="Employee Name"
-        android:layout_below="@+id/tvTitle"
-        android:layout_centerHorizontal="true"
-        />
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/etEmployeeId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/etEmployeeName"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Employee ID"
-        android:layout_below="@+id/etEmployeeName"
-        android:layout_centerHorizontal="true"
-         />
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/etAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/etEmployeeId"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Amount"
-        android:layout_below="@+id/etEmployeeId"
-        android:layout_centerHorizontal="true"
-        />
+        tools:ignore="TouchTargetSizeCheck" />
+
     <EditText
         android:id="@+id/etPriority"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/etPurpose"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Priority"
-        android:layout_below="@+id/etPurpose"
-        android:layout_centerHorizontal="true"
-        />
+        tools:ignore="TouchTargetSizeCheck" />
 
 
     <EditText
@@ -66,19 +67,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etAmount"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Purpose"
-        android:layout_centerHorizontal="true"/>
+        tools:ignore="TouchTargetSizeCheck" />
 
 
-    <Button
-        android:id="@+id/requestSubmitButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etPriority"
+        android:layout_below="@id/etPriority"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:backgroundTint="#42f5e9"
-        android:text="SUBMIT" />
+        android:layout_margin="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/requestApproveButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="45"
+            android:backgroundTint="#00CC00"
+            android:text="APPROVE" />
+
+        <Button
+            android:id="@+id/requestRejectButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="45"
+            android:backgroundTint="#CC0000"
+            android:text="REJECT" />
+    </LinearLayout>
+
 </RelativeLayout>
