@@ -98,7 +98,7 @@ public class DisplayRequestsActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 requestsViewModel.delete(requestAdapter.getRequestPosition(viewHolder.getAdapterPosition()));
-                Toast.makeText(DisplayRequestsActivity.this, "Note deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DisplayRequestsActivity.this, "Request deleted", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
 
@@ -123,7 +123,7 @@ public class DisplayRequestsActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) { //This function will still be triggered if we left the AddNoteActivity using the back button, meaning abortion of creation of a new note, but now, the result will not be set to RESULT_OK, but will be set by the system to RESULT_CANCELLED.
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) { //This function will still be triggered if we left the AddActivity using the back button, meaning abortion of creation of a new request, but now, the result will not be set to RESULT_OK, but will be set by the system to RESULT_CANCELLED.
 
         super.onActivityResult(requestCode, resultCode, data);
 
