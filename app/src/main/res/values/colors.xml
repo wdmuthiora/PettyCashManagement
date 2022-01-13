@@ -8,13 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="green_700">#344e41</color>
-    <color name="green_500">#3a5a40</color>
+    <color name="green_700">#344E41</color>
+    <color name="green_500">#3A5A40</color>
     <color name="green_300">#588157</color>
-    <color name="green_200">#90be6d</color>
-    <color name="green_100">#a3b18a</color>
+    <color name="green_200">#90BE6D</color>
+    <color name="green_100">#A3B18A</color>
 
-    <color name="gray">#cbdfbd</color>
+    <color name="gray">#CBDFBD</color>
+    <color name="origin_blue">#55EF6A</color>
 
 
 </resources>

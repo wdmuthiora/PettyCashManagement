@@ -12,8 +12,6 @@
         android:layout_height="wrap_content"
         android:paddingBottom="2dp"
         tools:listitem="@layout/request_item"
-        android:background="@color/teal_200"
-
         />
 
 
@@ -23,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="32dp"
+        android:background="@color/green_200"
         android:src="@drawable/ic_add"
         tools:ignore="SpeakableTextPresentCheck" />
 
