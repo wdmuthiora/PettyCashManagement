@@ -31,7 +31,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     public static final String EXTRA_PURPOSE = "com.moringaschool.pettycashmanagement.EXTRA_PURPOSE";
 
 
-    @BindView(R.id.requestSubmitButton)
+    @BindView(R.id.requestApproveButton)
     Button submit_button;
 
    private TextView tvTitle;
