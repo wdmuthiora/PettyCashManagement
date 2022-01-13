@@ -2,7 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:elevation="16dp"
+    android:outlineSpotShadowColor="@color/cardview_dark_background">
 
     <RelativeLayout
         android:layout_width="wrap_content"
