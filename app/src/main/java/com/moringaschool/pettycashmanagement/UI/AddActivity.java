@@ -11,16 +11,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.moringaschool.pettycashmanagement.Constants.Constants;
 import com.moringaschool.pettycashmanagement.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class AddActivity extends AppCompatActivity implements View.OnClickListener {
-
 
     //Constants.
     public static final String EXTRA_ID = "com.moringaschool.pettycashmanagement.EXTRA_ID";
@@ -29,18 +30,29 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     public static final String EXTRA_AMOUNT = "com.moringaschool.pettycashmanagement.EXTRA_AMOUNT";
     public static final String EXTRA_PRIORITY = "com.moringaschool.pettycashmanagement.EXTRA_PRIORITY";
     public static final String EXTRA_PURPOSE = "com.moringaschool.pettycashmanagement.EXTRA_PURPOSE";
+    public static final String EXTRA_REJECTED = "com.moringaschool.pettycashmanagement.EXTRA_REJECTED";
+    public static final String EXTRA_APPROVED = "com.moringaschool.pettycashmanagement.EXTRA_APPROVED";
+    private static final String EXTRA_PENDING = "com.moringaschool.pettycashmanagement.EXTRA_PENDING";
 
 
     @BindView(R.id.requestApproveButton)
-    Button submit_button;
-
-   private TextView tvTitle;
-   private EditText etEmployeeName;
-   private EditText etEmployeeId;
-   private EditText etAmount;
-   private EditText etPurpose;
-   private EditText etPriority;
-
+    Button approve_button;
+    @BindView(R.id.requestRejectButton)
+    Button reject_button;
+    @BindView(R.id.approve_reject)
+    LinearLayout approve_reject;
+    @BindView(R.id.tvTitle)
+    TextView tvTitle;
+    @BindView(R.id.etEmployeeName)
+    EditText etEmployeeName;
+    @BindView(R.id.etEmployeeId)
+    EditText etEmployeeId;
+    @BindView(R.id.etAmount)
+    EditText etAmount;
+    @BindView(R.id.etPurpose)
+    EditText etPurpose;
+    @BindView(R.id.tvStatus)
+    TextView tvStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,27 +60,26 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_add);
         ButterKnife.bind(this);
 
-        tvTitle = findViewById(R.id.tvTitle);
-        etEmployeeName = findViewById(R.id.etEmployeeName);
-        etEmployeeId = findViewById(R.id.etEmployeeId);
-        etAmount = findViewById(R.id.etAmount);
-        etPurpose = findViewById(R.id.etPurpose);
-        etPriority = findViewById(R.id.etPriority);
+        approve_reject.setOnClickListener(this);
+        reject_button.setOnClickListener(this);
 
-
-        submit_button.setOnClickListener(this);
-
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
+//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
 
         Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_ID)) { //Get intent extra values from the clicked Card inside the RecyclerView, to edit.
 
-            setTitle("Edit request");
+            setTitle("Action Request");
             etEmployeeId.setText(intent.getStringExtra(EXTRA_EMPLOYEE_ID));
             etEmployeeName.setText(intent.getStringExtra(EXTRA_NAME));
             etAmount.setText(intent.getStringExtra(EXTRA_AMOUNT));
-            etPriority.setText(intent.getStringExtra(EXTRA_PRIORITY));
+            tvStatus.setText(intent.getStringExtra(EXTRA_PENDING));
             etPurpose.setText(intent.getStringExtra(EXTRA_PURPOSE));
+
+            //unhide approve-reject
+            approve_reject.setVisibility(View.VISIBLE);
+            etEmployeeId.setVisibility(View.GONE);
+            etAmount.setVisibility(View.GONE);
+            tvTitle.setText("Action Request");
 
 
         } else {
@@ -102,10 +113,10 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         String employeeId = etEmployeeId.getText().toString();
         String amount = etAmount.getText().toString();
         String purpose = etPurpose.getText().toString();
-        String priority = etPriority.getText().toString();
+        String priority = tvStatus.getText().toString();
 
         //Validation
-        if (employeeName.trim().isEmpty() || purpose.trim().isEmpty() || priority.trim().isEmpty() ) { //'.trim' removes the empty spaces
+        if (employeeName.trim().isEmpty() || purpose.trim().isEmpty() || priority.trim().isEmpty()) { //'.trim' removes the empty spaces
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             return; //Exit 'saveRequest()' if there is a blank. Otherwise, proceed to saving
         }
@@ -133,11 +144,24 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        if (v == submit_button) {
+        if (v == approve_button) {
             Intent intent = new Intent(AddActivity.this, DisplayRequestsActivity.class);
+            //set status indicator to item and update its status value
+            intent.putExtra(AddActivity.EXTRA_REJECTED, Constants.EXTRA_APPROVED );
+
             startActivity(intent);
             finish();
+        } else if(v == reject_button) {
+            Intent intent = new Intent(AddActivity.this, DisplayRequestsActivity.class);
+            //set status indicator to item and update its status value
+            intent.putExtra(AddActivity.EXTRA_REJECTED, Constants.EXTRA_REJECTED);
+
+            startActivity(intent);
+            finish();
+
         }
 
     }
+
+
 }

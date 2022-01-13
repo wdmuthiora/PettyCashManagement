@@ -11,4 +11,9 @@ public class Constants {
     public static final int EXTRA_ID = 1;
     public static final String EXTRA_PURPOSE ="";
 
+    public static final String EXTRA_PENDING ="Pending";
+    public static final String EXTRA_APPROVED ="Approved";
+    public static final String EXTRA_REJECTED ="Rejected";
+
+
 }

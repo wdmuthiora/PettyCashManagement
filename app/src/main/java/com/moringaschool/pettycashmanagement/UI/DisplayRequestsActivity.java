@@ -112,7 +112,7 @@ public class DisplayRequestsActivity extends AppCompatActivity {
                 intent.putExtra(AddActivity.EXTRA_EMPLOYEE_ID, pettyCashRequest.getId());
                 intent.putExtra(AddActivity.EXTRA_NAME, pettyCashRequest.getName());
                 intent.putExtra(AddActivity.EXTRA_AMOUNT, pettyCashRequest.getAmount());
-                intent.putExtra(AddActivity.EXTRA_PRIORITY, pettyCashRequest.getPriority());
+                intent.putExtra(AddActivity.EXTRA_PRIORITY, pettyCashRequest.getStatus());
                 intent.putExtra(AddActivity.EXTRA_PURPOSE, pettyCashRequest.getPurpose());
 
                 startActivityForResult(intent, Constants.EDIT_PETTY_CASH_REQUEST);
@@ -155,6 +155,8 @@ public class DisplayRequestsActivity extends AppCompatActivity {
             int amount = data.getIntExtra(AddActivity.EXTRA_AMOUNT, 1); //Integer values are not nullable, so we pass a default value, in this case, '1'. This can also serve as a default value.
             String priority = data.getStringExtra(AddActivity.EXTRA_PRIORITY);
             String purpose = data.getStringExtra(AddActivity.EXTRA_PURPOSE);
+
+            String status = data.getStringExtra(AddActivity.EXTRA_REJECTED);
 
             PettyCashRequest pettyCashRequest = new PettyCashRequest(name, employee_Id, amount, priority, purpose);
 

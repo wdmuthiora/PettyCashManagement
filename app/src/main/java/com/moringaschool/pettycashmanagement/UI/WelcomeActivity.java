@@ -39,17 +39,14 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         if(view == mGoToLogin){
-            Toast.makeText(WelcomeActivity.this, "mGoToLogin", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
             startActivity(intent);
         }
         if(view == mGoToRegister){
-            Toast.makeText(WelcomeActivity.this, "mGoToRegister", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(WelcomeActivity.this, SignupActivity.class);
             startActivity(intent);
         }
         if(view == mTerms){
-            Toast.makeText(WelcomeActivity.this, "mTerms", Toast.LENGTH_SHORT).show();
         }
     }
 

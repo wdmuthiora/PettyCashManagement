@@ -16,6 +16,12 @@
 
     <color name="gray">#CBDFBD</color>
     <color name="origin_blue">#55EF6A</color>
+    <color name="approve">#00CC00</color>
+    <color name="pending">#FDD835</color>
+    <color name="reject">#CC0000</color>
+
+
+
 
 
 </resources>

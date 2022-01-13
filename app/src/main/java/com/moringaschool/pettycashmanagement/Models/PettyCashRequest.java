@@ -10,15 +10,15 @@ public class PettyCashRequest {
     private int id; //Primary key.
     private String name;
     private String employee_ID;
-    private String priority;
+    private String status;
     private String purpose;
     private String currency;
     private int amount;
 
     //constructor
-    public PettyCashRequest(String name, String employee_ID, int amount, String priority, String purpose) {
+    public PettyCashRequest(String name, String employee_ID, int amount, String status, String purpose) {
         this.name = name;
-        this.priority = priority;
+        this.status = status;
         this.purpose = purpose;
         this.amount = amount;
         this. employee_ID=employee_ID;
@@ -48,12 +48,12 @@ public class PettyCashRequest {
         this.employee_ID = employee_ID;
     }
 
-    public String getPriority() {
-        return priority;
+    public String getStatus() {
+        return status;
     }
 
-    public void setPriority(String priority) {
-        this.priority = priority;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getPurpose() {

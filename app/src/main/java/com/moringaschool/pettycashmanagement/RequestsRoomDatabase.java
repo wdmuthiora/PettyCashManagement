@@ -11,7 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.moringaschool.pettycashmanagement.Dao.PettyCashDao;
 import com.moringaschool.pettycashmanagement.Models.PettyCashRequest;
 
-@Database(entities = {PettyCashRequest.class}, version = 21)
+@Database(entities = {PettyCashRequest.class}, version = 22)
 public abstract class RequestsRoomDatabase extends RoomDatabase {
 
     private static RequestsRoomDatabase requestsRoomDatabaseInstance;
