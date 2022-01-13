@@ -3,7 +3,7 @@ package com.moringaschool.pettycashmanagement.Models;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName="petty_cash_requests_table")
+@Entity(tableName = "pettyCash_table")
 public class PettyCashRequest {
 
     @PrimaryKey(autoGenerate = true)
