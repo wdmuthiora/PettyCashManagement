@@ -143,7 +143,7 @@ public class DisplayRequestsActivity extends AppCompatActivity {
             Toast.makeText(DisplayRequestsActivity.this, "Petty Cash Request updated", Toast.LENGTH_SHORT).show();
 
         }else{
-            Toast.makeText(this, "Petty Cash Request not saved", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Petty Cash Request not saved", Toast.LENGTH_SHORT).show();
 
         }
     }

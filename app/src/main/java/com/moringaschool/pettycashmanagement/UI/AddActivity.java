@@ -62,6 +62,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
         Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_ID)) { //Get intent extra values from the clicked Card inside the RecyclerView, to edit.
+
             setTitle("Edit request");
             etEmployeeId.setText(intent.getStringExtra(EXTRA_EMPLOYEE_ID));
             etEmployeeName.setText(intent.getStringExtra(EXTRA_NAME));
@@ -100,7 +101,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         String employeeName = etEmployeeName.getText().toString();
         String employeeId = etEmployeeId.getText().toString();
         String amount = etAmount.getText().toString();
-        String purpose = etPurpose.getText().toString();;
+        String purpose = etPurpose.getText().toString();
         String priority = etPriority.getText().toString();
 
         //Validation

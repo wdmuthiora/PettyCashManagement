@@ -7,7 +7,6 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-
 import com.moringaschool.pettycashmanagement.Models.PettyCashRequest;
 
 import java.util.List;
@@ -25,10 +24,10 @@ public interface PettyCashDao {
     @Delete
     void delete(PettyCashRequest pettyCashRequest);
 
-    @Query("DELETE FROM `pettyCash_table`")
+    @Query("DELETE FROM pettyCash_table")
     void deleteAllRequests();
 
-    @Query("SELECT * FROM `pettyCash_table` ORDER BY priority DESC")
+    @Query("SELECT * FROM pettyCash_table ORDER BY name DESC")
     LiveData<List<PettyCashRequest>> getAllRequests(); //Return LiveData  of List of Petty Cash Requests. You can observe LiveData
 
 }
