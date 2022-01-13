@@ -1,17 +1,18 @@
 package com.moringaschool.pettycashmanagement.Models;
 
-import java.util.Date;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "pettyCash_table")
 public class PettyCashRequest {
 
+    @PrimaryKey(autoGenerate = true)
     private int id; //Primary key.
 
     private String name;
     private String employee_ID;
     private String priority;
     private String purpose;
-    private Date date;
     private String currency;
     private int amount;
 
@@ -21,10 +22,17 @@ public class PettyCashRequest {
         this.name = name;
         this.priority = priority;
         this.purpose = purpose;
-        this.date = date;
         this.currency = currency;
         this.amount = amount;
         this. employee_ID=employee_ID;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -59,14 +67,6 @@ public class PettyCashRequest {
         this.purpose = purpose;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
     public String getCurrency() {
         return currency;
     }
@@ -82,4 +82,5 @@ public class PettyCashRequest {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
 }

@@ -9,19 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PettyCashManagement">
+
         <activity
             android:name=".UI.SignupActivity"
             android:exported="false" />
+
         <activity
             android:name=".UI.WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".UI.LoginActivity" />
+
         <activity
             android:name=".UI.DisplayRequestsActivity"
             android:exported="false" />

@@ -42,6 +42,8 @@ android {
 
 dependencies {
 
+    implementation 'androidx.cardview:cardview:1.0.0'
+
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
@@ -88,6 +90,26 @@ dependencies {
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.firebaseui:firebase-ui-database:7.1.1'
     implementation 'com.google.firebase:firebase-auth'
+
+
+    //Lifecycle
+    def lifecycle_version = "2.4.0"
+
+    //Room
+    def room_version="2.4.0"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+
+    // Annotation processor
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+    //Room
+    implementation "androidx.room:room-runtime:$room_version"
+    //Room Annotation processor
+    annotationProcessor "androidx.room:room-compiler:$room_version"
 
 }
 

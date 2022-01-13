@@ -7,10 +7,10 @@
     tools:context=".UI.AddActivity">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:text="@string/title"
         android:textColor="#42f5e9"
         android:textSize="28sp"
@@ -18,44 +18,54 @@
 
 
     <EditText
-        android:id="@+id/employeeName"
+        android:id="@+id/etEmployeeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
         android:ems="10"
         android:hint="Employee Name"
-        android:layout_below="@+id/title"
+        android:layout_below="@+id/tvTitle"
         android:layout_centerHorizontal="true"
         />
 
     <EditText
-        android:id="@+id/employeeId"
+        android:id="@+id/etEmployeeId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Employee ID"
-        android:layout_below="@+id/employeeName"
+        android:layout_below="@+id/etEmployeeName"
         android:layout_centerHorizontal="true"
          />
 
     <EditText
-        android:id="@+id/amount"
+        android:id="@+id/etAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Amount"
-        android:layout_below="@+id/employeeId"
+        android:layout_below="@+id/etEmployeeId"
+        android:layout_centerHorizontal="true"
+        />
+    <EditText
+        android:id="@+id/etPriority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Priority"
+        android:layout_below="@+id/etPurpose"
         android:layout_centerHorizontal="true"
         />
 
 
     <EditText
-        android:id="@+id/purpose"
+        android:id="@+id/etPurpose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/amount"
+        android:layout_below="@+id/etAmount"
         android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Purpose"
@@ -66,7 +76,7 @@
         android:id="@+id/requestSubmitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/purpose"
+        android:layout_below="@+id/etPriority"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:backgroundTint="#42f5e9"
