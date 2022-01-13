@@ -1,5 +1,6 @@
 package com.moringaschool.pettycashmanagement.UI;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -114,7 +115,7 @@ public class DisplayRequestsActivity extends AppCompatActivity {
                 intent.putExtra(AddActivity.EXTRA_AMOUNT, pettyCashRequest.getAmount());
                 intent.putExtra(AddActivity.EXTRA_PRIORITY, pettyCashRequest.getPriority());
                 intent.putExtra(AddActivity.EXTRA_PURPOSE, pettyCashRequest.getPurpose());
-
+                Bundle animate = ActivityOptions.makeSceneTransitionAnimation(DisplayRequestsActivity.this).toBundle();
                 startActivityForResult(intent, Constants.EDIT_PETTY_CASH_REQUEST);
             }
         });

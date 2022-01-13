@@ -3,6 +3,7 @@ package com.moringaschool.pettycashmanagement.UI;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -135,7 +136,8 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         if (v == submit_button) {
             Intent intent = new Intent(AddActivity.this, DisplayRequestsActivity.class);
-            startActivity(intent);
+            Bundle animate = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
+            startActivity(intent,animate);
             finish();
         }
 
