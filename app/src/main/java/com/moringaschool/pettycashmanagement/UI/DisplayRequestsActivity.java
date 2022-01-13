@@ -84,7 +84,7 @@ public class DisplayRequestsActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<PettyCashRequest> pettyCashRequests) {
                 requestAdapter.submitList(pettyCashRequests);
-                Toast.makeText(DisplayRequestsActivity.this, "onChanged", Toast.LENGTH_SHORT).show();
+              //Toast.makeText(DisplayRequestsActivity.this, "onChanged", Toast.LENGTH_SHORT).show();
             }
         });
 
