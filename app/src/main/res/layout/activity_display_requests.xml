@@ -12,6 +12,8 @@
         android:layout_height="wrap_content"
         android:paddingBottom="2dp"
         tools:listitem="@layout/request_item"
+        android:background="@color/teal_200"
+
         />
 
 
