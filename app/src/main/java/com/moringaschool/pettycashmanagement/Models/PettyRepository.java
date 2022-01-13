@@ -5,99 +5,106 @@ import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
+import com.moringaschool.pettycashmanagement.Dao.PettyCashDao;
+import com.moringaschool.pettycashmanagement.RequestsRoomDatabase;
+
 import java.util.List;
 
 public class PettyRepository {
-    private RequestDao requestDao;
 
-    private LiveData<List<Request>> allRequests;
+    private PettyCashDao pettyCashDao;
+
+    private LiveData<List<PettyCashRequest>> allRequests;
 
 
     //constructor
     public PettyRepository (Application application){
         RequestsRoomDatabase database = RequestsRoomDatabase.getInstance(application);
-        requestDao = database.requestDao();
-        allRequests = requestDao.getAllRequest();
+        pettyCashDao = database.pettyCashDao();
+        allRequests = pettyCashDao.getAllRequests();
     }
 
 
 
-    public void insert(Request request){
+    public void insert(PettyCashRequest pettyCashRequest){
         //Use AsyncTask below.
-        new InsertRequestAsyncTask(requestDao).execute(request);
+        new InsertRequestAsyncTask(pettyCashDao).execute(pettyCashRequest);
     }
 
-    public void update(Request request){
+    public void update(PettyCashRequest pettyCashRequest){
         //Use AsyncTask below.
-        new UpdateRequestAsyncTask(requestDao).execute(request);
+        new UpdateRequestAsyncTask(pettyCashDao).execute(pettyCashRequest);
     }
 
-    public void delete(Request request){
+    public void delete(PettyCashRequest pettyCashRequest){
         //Use AsyncTask below.
-        new DeleteRequestAsyncTask(requestDao).execute(request);
+        new DeleteRequestAsyncTask(pettyCashDao).execute(pettyCashRequest);
     }
 
-    public void deleteAllNotes(){
+    public void deleteAllRequests(){
         //Use AsyncTask below.
-        new DeleteAllRequestAsyncTask(requestDao).execute();
+        new DeleteAllRequestAsyncTask(pettyCashDao).execute();
     }
 
-    public LiveData<List<Request>> getAllRequests(){//Room automatically execute database operations that return LiveData in the background thread, thus we don't have to do anything else to return LiveData.
+    public LiveData<List<PettyCashRequest>> getAllRequests() {//Room automatically execute database operations that return LiveData in the background thread, thus we don't have to do anything else to return LiveData.
         return allRequests;
     }
 
 
-    //Make inserting a note to db an asynchronous task
-    private static class InsertRequestAsyncTask extends AsyncTask<Request, Void, Void> { //'Static' so that it does NOT contain reference to the Repository itself, else a memory leak could occur.
+
+
+    //Async calls to db.
+    //Make inserting a Petty Cash Request to db an asynchronous task
+    private static class InsertRequestAsyncTask extends AsyncTask<PettyCashRequest, Void, Void> { //'Static' so that it does NOT contain reference to the Repository itself, else a memory leak could occur.
         //AsyncTask<'pass Note object', 'no progress update', 'return nothing'>
 
-        private RequestDao requestDao; //Used to make NoteDatabase operations.
+        private PettyCashDao pettyCashDao; //Used to make Database operations.
 
         //constructor
-        private InsertRequestAsyncTask(RequestDao requestDao){ // Since 'InsertNoteAsyncTask' is static, we cannot access the Repository's member NoteDao directly, thus we use the constructor.
-            this.requestDao=requestDao;
+        private InsertRequestAsyncTask(PettyCashDao pettyCashDao){ // Since 'InsertNoteAsyncTask' is static, we cannot access the Repository's member PettyCashDao directly, thus we use the constructor.
+            this.pettyCashDao = pettyCashDao;
         }
 
         @Override
-        protected Void doInBackground(Request... requests) { //'Note... note' the parameters act like array.
-            requestDao.insert(requests[0]);
+        protected Void doInBackground(PettyCashRequest... requests) { //'Note... note' the parameters act like array.
+            pettyCashDao.insert(requests[0]);
             return null;
         }
 
     }
 
     //Make Updating a note to db an asynchronous task
-    private static class UpdateRequestAsyncTask extends AsyncTask<Request, Void, Void>{ //'Static' so that it does NOT contain reference to the Repository itself, else a memory leak could occur.
-        //AsyncTask<'pass Note object', 'no progress update', 'return nothing'>
+    private static class UpdateRequestAsyncTask extends AsyncTask<PettyCashRequest, Void, Void>{ //'Static' so that it does NOT contain reference to the Repository itself, else a memory leak could occur.
+        //AsyncTask<'pass PettyCashRequest object', 'no progress update', 'return nothing'>
 
-        private RequestDao requestDao; //Used to make NoteDatabase operations.
+        private PettyCashDao pettyCashDao; //Used to make NoteDatabase operations.
         //constructor
-        private UpdateRequestAsyncTask(RequestDao requestDao){ // Since 'InsertNoteAsyncTask' is static, we cannot access the Repository NoteDao directly, thus we use the constructor.
-            this.requestDao=requestDao;
+        private UpdateRequestAsyncTask(PettyCashDao pettyCashDao){ // Since 'InsertNoteAsyncTask' is static, we cannot access the Repository PettyCashDao directly, thus we use the constructor.
+            this.pettyCashDao=pettyCashDao;
         }
 
         @Override
-        protected Void doInBackground(Request... requests) { //'Note... note' the parameters act like array.
-            requestDao.update(requests[0]);
+        protected Void doInBackground(PettyCashRequest... requests) { //'Note... note' the parameters act like array.
+            pettyCashDao.update(requests[0]);
             return null;
         }
 
     }
 
     //Make Deleting a note to db an asynchronous task
-    private static class DeleteRequestAsyncTask extends AsyncTask<Request, Void, Void>{ //'Static' so that it does NOT contain reference to the Repository itself, else a memory leak could occur.
-        //AsyncTask<'pass Note object', 'no progress update', 'return nothing'>
+    private static class DeleteRequestAsyncTask extends AsyncTask<PettyCashRequest, Void, Void>{ //'Static' so that it does NOT contain reference to the Repository itself, else a memory leak could occur.
+        //AsyncTask<'pass PettyCash object', 'no progress update', 'return nothing'>
 
-        private RequestDao requestDao; //Used to make NoteDatabase operations.
+        private PettyCashDao pettyCashDao; //Used to make NoteDatabase operations.
 
         //constructor
-        private DeleteRequestAsyncTask(RequestDao requestDao){ // Since 'DeleteNoteAsyncTask' is static, we cannot access the Repository NoteDao directly, thus we use the constructor.
-            this.requestDao=requestDao;
+        private DeleteRequestAsyncTask(PettyCashDao pettyCashDao){ // Since 'DeleteNoteAsyncTask' is static, we cannot access the Repository NoteDao directly, thus we use the constructor.
+            this.pettyCashDao=pettyCashDao;
         }
 
         @Override
-        protected Void doInBackground(Request... requests) { //'Note... note' the parameters act like array.
-            requestDao.delete(requests[0]);
+        protected Void doInBackground(PettyCashRequest... requests) { //'Note... note' the parameters act like array.
+            pettyCashDao.delete(requests[0]);
             return null;
         }
 
@@ -107,16 +114,16 @@ public class PettyRepository {
     private static class DeleteAllRequestAsyncTask extends AsyncTask<Void, Void, Void>{ //'Static' so that it does NOT contain reference to the Repository itself, else a memory leak could occur.
         //AsyncTask<'don't pass Note object', 'no progress update', 'return nothing'>
 
-        private RequestDao requestDao; //Used to make NoteDatabase operations.
+        private PettyCashDao pettyCashDao; //Used to make NoteDatabase operations.
 
         //constructor
-        private DeleteAllRequestAsyncTask(RequestDao noteDao){ // Since 'DeleteAllNoteAsyncTask' is static, we cannot access the Repository NoteDao directly, thus we use the constructor.
-            this.requestDao=requestDao;
+        private DeleteAllRequestAsyncTask(PettyCashDao pettyCashDao){ // Since 'DeleteAllNoteAsyncTask' is static, we cannot access the Repository NoteDao directly, thus we use the constructor.
+            this.pettyCashDao=pettyCashDao;
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
-            requestDao.deleteAll();
+            pettyCashDao.deleteAllRequests();
             return null;
         }
 

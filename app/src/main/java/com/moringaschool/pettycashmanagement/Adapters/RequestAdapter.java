@@ -27,6 +27,7 @@ public class RequestAdapter extends ListAdapter<PettyCashRequest, RequestAdapter
     //compare lists when there's a change
     public static final DiffUtil.ItemCallback<PettyCashRequest> DIFF_CALLBACK=
             new DiffUtil.ItemCallback<PettyCashRequest>() {
+
         @Override
         public boolean areItemsTheSame(@NonNull PettyCashRequest oldItem, @NonNull PettyCashRequest newItem) {
             return oldItem.getId()==newItem.getId();
@@ -38,10 +39,11 @@ public class RequestAdapter extends ListAdapter<PettyCashRequest, RequestAdapter
                     oldItem.getName().equals(newItem.getName()) &&
                     oldItem.getPurpose().equals(newItem.getPurpose()) &&
                     oldItem.getPriority().equals(newItem.getPriority())  &&
-                    oldItem.getCurrency().equals(newItem.getCurrency()) &&
                     oldItem.getAmount()==newItem.getAmount();
         }
     };
+
+
 
     @NonNull
     @Override
@@ -52,7 +54,8 @@ public class RequestAdapter extends ListAdapter<PettyCashRequest, RequestAdapter
 
     @Override
     public void onBindViewHolder(@NonNull RequestHolder holder, int position) {
-        PettyCashRequest currentRequest= getItem(position);
+
+        PettyCashRequest currentRequest = getItem(position);
 
         holder.textViewName.setText(currentRequest.getName());
         holder.textViewPriority.setText(String.valueOf(currentRequest.getPriority()));
@@ -60,12 +63,13 @@ public class RequestAdapter extends ListAdapter<PettyCashRequest, RequestAdapter
         holder.textViewCurrency.setText(currentRequest.getCurrency());
         holder.textViewAmount.setText(currentRequest.getAmount());
 
-
     }
 
     public PettyCashRequest getRequestPosition(int position){
         return getItem(position);
 }
+
+
 
 
     class RequestHolder extends RecyclerView.ViewHolder {
@@ -80,6 +84,7 @@ public class RequestAdapter extends ListAdapter<PettyCashRequest, RequestAdapter
 
         public RequestHolder(@NonNull View itemView) {
             super(itemView);
+
             textViewName = itemView.findViewById(R.id.text_view_name);
             textViewPriority = itemView.findViewById(R.id.text_view_priority);
             textViewPurpose = itemView.findViewById(R.id.text_view_purpose);

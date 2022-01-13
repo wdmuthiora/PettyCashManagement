@@ -105,7 +105,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
         //Validation
         if (employeeName.trim().isEmpty() || purpose.trim().isEmpty() || priority.trim().isEmpty() ) { //'.trim' removes the empty spaces
-            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             return; //Exit 'saveRequest()' if there is a blank. Otherwise, proceed to saving
         }
 

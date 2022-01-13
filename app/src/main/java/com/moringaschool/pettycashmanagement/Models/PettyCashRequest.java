@@ -8,7 +8,6 @@ public class PettyCashRequest {
 
     @PrimaryKey(autoGenerate = true)
     private int id; //Primary key.
-
     private String name;
     private String employee_ID;
     private String priority;
@@ -16,13 +15,11 @@ public class PettyCashRequest {
     private String currency;
     private int amount;
 
-
+    //constructor
     public PettyCashRequest(String name, String employee_ID, int amount, String priority, String purpose) {
-        this.id = id;
         this.name = name;
         this.priority = priority;
         this.purpose = purpose;
-        this.currency = currency;
         this.amount = amount;
         this. employee_ID=employee_ID;
     }

@@ -5,6 +5,7 @@ import static com.moringaschool.pettycashmanagement.Constants.Constants.ADD_PETT
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -26,6 +27,10 @@ import com.moringaschool.pettycashmanagement.RequestsViewModel;
 import java.util.List;
 
 public class DisplayRequestsActivity extends AppCompatActivity {
+
+
+    public static final int ADD_PETTY_CASH_REQUEST = 1; //To add a request
+    public static final int EDIT_PETTY_CASH_REQUEST = 2; //To edit a request
 
     private RequestsViewModel requestsViewModel; //We need an instance to call CRUD operations on our DB
 
@@ -113,11 +118,11 @@ public class DisplayRequestsActivity extends AppCompatActivity {
             PettyCashRequest pettyCashRequest = new PettyCashRequest(name, employee_Id, amount, priority, purpose);
 
             requestsViewModel.insert(pettyCashRequest);
-            Toast.makeText(this, "Petty Cash Request saved", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Petty Cash Request saved", Toast.LENGTH_SHORT).show();
 
-        } else  if (requestCode == Constants.EDIT_PETTY_CASH_REQUEST && resultCode==RESULT_OK){
+        } else  if (requestCode == EDIT_PETTY_CASH_REQUEST && resultCode==RESULT_OK){
 
-            int id = data.getIntExtra(AddActivity.EXTRA_ID, -1);
+            int id = data.getIntExtra(AddActivity.EXTRA_ID, -1); //Default value means it does not exist in Db , hence no conflict.
 
             if (id==-1){
                 Toast.makeText(DisplayRequestsActivity.this, "Petty Cash Request can't be edited", Toast.LENGTH_SHORT).show();
@@ -131,6 +136,7 @@ public class DisplayRequestsActivity extends AppCompatActivity {
             String purpose = data.getStringExtra(AddActivity.EXTRA_PURPOSE);
 
             PettyCashRequest pettyCashRequest = new PettyCashRequest(name, employee_Id, amount, priority, purpose);
+
             pettyCashRequest.setId(id); //Set the ID of the Petty Cash Request object we are creating, in order for Room to identify which pettyCashRequest (row) we are editing.
 
             requestsViewModel.update(pettyCashRequest);
