@@ -86,6 +86,7 @@ public class DisplayRequestsActivity extends AppCompatActivity {
                 Intent intent = new Intent(DisplayRequestsActivity.this, AddActivity.class); //Since we are in this anonymous inner class, we can not call 'this' context
                 intent.putExtra(AddActivity.EXTRA_ID, pettyCashRequest.getId()); //We need to pass the clicked item's ID because Room uses it as the Primary Key
                 intent.putExtra(AddActivity.EXTRA_EMPLOYEE_ID, pettyCashRequest.getId());
+                intent.putExtra(AddActivity.EXTRA_NAME, pettyCashRequest.getName());
                 intent.putExtra(AddActivity.EXTRA_AMOUNT, pettyCashRequest.getAmount());
                 intent.putExtra(AddActivity.EXTRA_PRIORITY, pettyCashRequest.getPriority());
                 intent.putExtra(AddActivity.EXTRA_PURPOSE, pettyCashRequest.getPurpose());
