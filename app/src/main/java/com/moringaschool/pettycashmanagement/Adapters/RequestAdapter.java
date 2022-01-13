@@ -61,7 +61,7 @@ public class RequestAdapter extends ListAdapter<PettyCashRequest, RequestAdapter
         holder.textViewPriority.setText(String.valueOf(currentRequest.getPriority()));
         holder.textViewPurpose.setText(currentRequest.getPurpose());
         holder.textViewCurrency.setText(currentRequest.getCurrency());
-        holder.textViewAmount.setText(currentRequest.getAmount());
+        holder.textViewAmount.setText(String.valueOf(currentRequest.getAmount()));
 
     }
 
@@ -77,7 +77,7 @@ public class RequestAdapter extends ListAdapter<PettyCashRequest, RequestAdapter
         private TextView textViewName;
         private TextView textViewPriority;
         private TextView textViewPurpose;
-        private EditText date;
+        private TextView date;
         private TextView textViewCurrency;
         private TextView textViewAmount;
 
