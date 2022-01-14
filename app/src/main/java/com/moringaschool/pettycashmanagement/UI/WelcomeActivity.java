@@ -3,6 +3,7 @@ package com.moringaschool.pettycashmanagement.UI;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -40,11 +41,13 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         if(view == mGoToLogin){
             Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
-            startActivity(intent);
+            Bundle animate = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
+            startActivity(intent,animate);
         }
         if(view == mGoToRegister){
             Intent intent = new Intent(WelcomeActivity.this, SignupActivity.class);
-            startActivity(intent);
+            Bundle animate = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
+            startActivity(intent,animate);
         }
         if(view == mTerms){
         }

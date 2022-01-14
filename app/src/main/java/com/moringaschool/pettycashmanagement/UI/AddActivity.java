@@ -3,6 +3,7 @@ package com.moringaschool.pettycashmanagement.UI;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -148,15 +149,17 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
             Intent intent = new Intent(AddActivity.this, DisplayRequestsActivity.class);
             //set status indicator to item and update its status value
             intent.putExtra(AddActivity.EXTRA_REJECTED, Constants.EXTRA_APPROVED );
-
-            startActivity(intent);
+            Bundle animate = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
+            startActivity(intent,animate);
             finish();
-        } else if(v == reject_button) {
+        } 
+          if(v == reject_button) {
             Intent intent = new Intent(AddActivity.this, DisplayRequestsActivity.class);
             //set status indicator to item and update its status value
             intent.putExtra(AddActivity.EXTRA_REJECTED, Constants.EXTRA_REJECTED);
 
-            startActivity(intent);
+            Bundle animate = ActivityOptions.makeSceneTransitionAnimation(this).toBundle();
+            startActivity(intent,animate);
             finish();
 
         }

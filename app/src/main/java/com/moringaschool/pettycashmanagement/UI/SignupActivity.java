@@ -1,5 +1,6 @@
 package com.moringaschool.pettycashmanagement.UI;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -132,7 +133,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 if (user != null) {
                     Intent intent = new Intent(SignupActivity.this, DisplayRequestsActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
+                    Bundle animate = ActivityOptions.makeSceneTransitionAnimation(SignupActivity.this).toBundle();
+                    startActivity(intent,animate);
                     finish();
                 }
             }
