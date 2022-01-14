@@ -3,7 +3,6 @@ package com.moringaschool.pettycashmanagement.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,7 +37,7 @@ public class RequestAdapter extends ListAdapter<PettyCashRequest, RequestAdapter
             return oldItem.getId() == newItem.getId() &&
                     oldItem.getName().equals(newItem.getName()) &&
                     oldItem.getPurpose().equals(newItem.getPurpose()) &&
-                    oldItem.getPriority().equals(newItem.getPriority())  &&
+                    oldItem.getStatus().equals(newItem.getStatus())  &&
                     oldItem.getAmount()==newItem.getAmount();
         }
     };
@@ -58,9 +57,9 @@ public class RequestAdapter extends ListAdapter<PettyCashRequest, RequestAdapter
         PettyCashRequest currentRequest = getItem(position);
 
         holder.textViewName.setText(currentRequest.getName());
-        holder.textViewPriority.setText(String.valueOf(currentRequest.getPriority()));
+        holder.textViewPriority.setText(String.valueOf(currentRequest.getStatus()));
         holder.textViewPurpose.setText(currentRequest.getPurpose());
-        holder.textViewCurrency.setText(currentRequest.getCurrency());
+        holder.textViewCurrency.setText("Kes. ");
         holder.textViewAmount.setText(String.valueOf(currentRequest.getAmount()));
 
     }

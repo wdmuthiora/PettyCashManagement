@@ -32,9 +32,6 @@
         <activity
             android:name=".UI.AddActivity"
             android:exported="false" />
-        <activity
-            android:name=".UI.MainActivity"
-            android:exported="true"/>
 
     </application>
 

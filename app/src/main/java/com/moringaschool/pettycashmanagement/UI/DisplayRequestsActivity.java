@@ -99,7 +99,7 @@ public class DisplayRequestsActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 requestsViewModel.delete(requestAdapter.getRequestPosition(viewHolder.getAdapterPosition()));
-                Toast.makeText(DisplayRequestsActivity.this, "Note deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DisplayRequestsActivity.this, "Request deleted", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
 
@@ -113,7 +113,7 @@ public class DisplayRequestsActivity extends AppCompatActivity {
                 intent.putExtra(AddActivity.EXTRA_EMPLOYEE_ID, pettyCashRequest.getId());
                 intent.putExtra(AddActivity.EXTRA_NAME, pettyCashRequest.getName());
                 intent.putExtra(AddActivity.EXTRA_AMOUNT, pettyCashRequest.getAmount());
-                intent.putExtra(AddActivity.EXTRA_PRIORITY, pettyCashRequest.getPriority());
+                intent.putExtra(AddActivity.EXTRA_PRIORITY, pettyCashRequest.getStatus());
                 intent.putExtra(AddActivity.EXTRA_PURPOSE, pettyCashRequest.getPurpose());
                 Bundle animate = ActivityOptions.makeSceneTransitionAnimation(DisplayRequestsActivity.this).toBundle();
                 startActivityForResult(intent, Constants.EDIT_PETTY_CASH_REQUEST);
@@ -124,7 +124,7 @@ public class DisplayRequestsActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) { //This function will still be triggered if we left the AddNoteActivity using the back button, meaning abortion of creation of a new note, but now, the result will not be set to RESULT_OK, but will be set by the system to RESULT_CANCELLED.
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) { //This function will still be triggered if we left the AddActivity using the back button, meaning abortion of creation of a new request, but now, the result will not be set to RESULT_OK, but will be set by the system to RESULT_CANCELLED.
 
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -156,6 +156,8 @@ public class DisplayRequestsActivity extends AppCompatActivity {
             int amount = data.getIntExtra(AddActivity.EXTRA_AMOUNT, 1); //Integer values are not nullable, so we pass a default value, in this case, '1'. This can also serve as a default value.
             String priority = data.getStringExtra(AddActivity.EXTRA_PRIORITY);
             String purpose = data.getStringExtra(AddActivity.EXTRA_PURPOSE);
+
+            String status = data.getStringExtra(AddActivity.EXTRA_REJECTED);
 
             PettyCashRequest pettyCashRequest = new PettyCashRequest(name, employee_Id, amount, priority, purpose);
 
