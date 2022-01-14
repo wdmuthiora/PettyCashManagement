@@ -1,24 +1,27 @@
 package com.moringaschool.pettycashmanagement.Models;
 
-import java.util.Date;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+@Entity(tableName = "pettyCash_table")
 public class PettyCashRequest {
-    private int id;
-    private String title;
-    private String priority;
-    private String description;
-    private Date date;
+
+    @PrimaryKey(autoGenerate = true)
+    private int id; //Primary key.
+    private String name;
+    private String employee_ID;
+    private String status;
+    private String purpose;
     private String currency;
     private int amount;
 
-    public PettyCashRequest(String title, String priority, String description, Date date, String currency, int amount) {
-        this.id = id;
-        this.title = title;
-        this.priority = priority;
-        this.description = description;
-        this.date = date;
-        this.currency = currency;
+    //constructor
+    public PettyCashRequest(String name, String employee_ID, int amount, String status, String purpose) {
+        this.name = name;
+        this.status = status;
+        this.purpose = purpose;
         this.amount = amount;
+        this. employee_ID=employee_ID;
     }
 
     public int getId() {
@@ -29,36 +32,36 @@ public class PettyCashRequest {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPriority() {
-        return priority;
+    public String getEmployee_ID() {
+        return employee_ID;
     }
 
-    public void setPriority(String priority) {
-        this.priority = priority;
+    public void setEmployee_ID(String employee_ID) {
+        this.employee_ID = employee_ID;
     }
 
-    public String getDescription() {
-        return description;
+    public String getStatus() {
+        return status;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public Date getDate() {
-        return date;
+    public String getPurpose() {
+        return purpose;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
     }
 
     public String getCurrency() {
@@ -76,4 +79,5 @@ public class PettyCashRequest {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
 }

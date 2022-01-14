@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.DisplayRequests">
+    tools:context=".UI.DisplayRequestsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="32dp"
+        android:background="@color/green_200"
         android:src="@drawable/ic_add"
         tools:ignore="SpeakableTextPresentCheck" />
 

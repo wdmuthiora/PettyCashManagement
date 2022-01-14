@@ -42,30 +42,37 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'com.jakewharton:butterknife:10.2.3'
+    implementation 'androidx.navigation:navigation-fragment:2.3.5'
+    implementation 'androidx.navigation:navigation-ui:2.3.5'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     //  Robolectric dependencies
-    testImplementation 'org.robolectric:robolectric:4.4'
+    testImplementation 'org.robolectric:robolectric:4.7.2'
 
 //  Espresso
-    androidTestImplementation 'androidx.test:runner:1.3.0'
-    androidTestImplementation 'androidx.test:rules:1.3.0'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
 
 //   View Binding
-    implementation 'com.jakewharton:butterknife:10.2.0'
+    implementation 'com.jakewharton:butterknife:10.2.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
 
 //    Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
 //    RecyclerView
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
 //    Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
@@ -81,8 +88,28 @@ dependencies {
 
 //  FirebaseUI-Android
     implementation 'com.google.firebase:firebase-database'
-    implementation 'com.firebaseui:firebase-ui-database:7.1.1'
+    implementation 'com.firebaseui:firebase-ui-database:8.0.0'
     implementation 'com.google.firebase:firebase-auth'
+
+
+    //Lifecycle
+    def lifecycle_version = "2.4.0"
+
+    //Room
+    def room_version="2.4.0"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+
+    // Annotation processor
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+    //Room
+    implementation "androidx.room:room-runtime:$room_version"
+    //Room Annotation processor
+    annotationProcessor "androidx.room:room-compiler:$room_version"
 
 }
 

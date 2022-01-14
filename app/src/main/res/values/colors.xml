@@ -7,4 +7,21 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="green_700">#344E41</color>
+    <color name="green_500">#3A5A40</color>
+    <color name="green_300">#588157</color>
+    <color name="green_200">#90BE6D</color>
+    <color name="green_100">#A3B18A</color>
+
+    <color name="gray">#CBDFBD</color>
+    <color name="origin_blue">#55EF6A</color>
+    <color name="approve">#00CC00</color>
+    <color name="pending">#FDD835</color>
+    <color name="reject">#CC0000</color>
+
+
+
+
+
 </resources>

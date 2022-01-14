@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">PettyCashManagement</string>
+    <string name="title">Make Request</string>
+    <string name="welcome">Welcome</string>
+    <string name="easiest_way"></string>
+    <string name="manage_your_money">Manage Your Office Expenses</string>
+    <string name="register">Register</string>
+    <string name="get_started">GET STARTED</string>
+    <string name="terms_of_service">Terms Of Service</string>
+
 </resources>
+
